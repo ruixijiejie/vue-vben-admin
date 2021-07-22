@@ -1,16 +1,23 @@
+// global style
 import '/@/design/index.less';
 import '/@/design/tailwind.css';
 // Register icon sprite
 import 'virtual:svg-icons-register';
 import App from './App.vue';
 import { createApp } from 'vue';
+// App system configuration
 import { initAppConfigStore } from '/@/logics/initAppConfig';
 import { setupErrorHandle } from '/@/logics/error-handle';
+// router
 import { router, setupRouter } from '/@/router';
 import { setupRouterGuard } from '/@/router/guard';
+// store
 import { setupStore } from '/@/store';
+// directives
 import { setupGlobDirectives } from '/@/directives';
+// internationalization
 import { setupI18n } from '/@/locales/setupI18n';
+// global components
 import { registerGlobComp } from '/@/components/registerGlobComp';
 
 // Do not introduce on-demand in local development?

@@ -14,21 +14,20 @@ const getConfig = (config: Partial<TreeHelperConfig>) => Object.assign({}, DEFAU
 // tree from list
 export function listToTree<T = any>(list: any[], config: Partial<TreeHelperConfig> = {}): T[] {
   const conf = getConfig(config) as TreeHelperConfig;
-  const nodeMap = new Map();
+  const nodeMap = new Map<string, any>();
   const result: T[] = [];
   const { id, children, pid } = conf;
 
   for (const node of list) {
     node[children] = node[children] || [];
     nodeMap.set(node[id], node);
-  }
-  for (const node of list) {
     const parent = nodeMap.get(node[pid]);
     (parent ? parent.children : result).push(node);
   }
   return result;
 }
 
+// tree to list
 export function treeToList<T = any>(tree: any, config: Partial<TreeHelperConfig> = {}): T {
   config = getConfig(config);
   const { children } = config;

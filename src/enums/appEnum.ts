@@ -14,6 +14,7 @@ export enum ThemeEnum {
   LIGHT = 'light',
 }
 
+// setting button position
 export enum SettingButtonPositionEnum {
   AUTO = 'auto',
   HEADER = 'header',
