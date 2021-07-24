@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrap">
+  <div ref="target">
     <slot></slot>
   </div>
 </template>
@@ -10,9 +10,9 @@
     name: 'ClickOutSide',
     emits: ['mounted', 'clickOutside'],
     setup(_, { emit }) {
-      const wrap = ref<ElRef>(null);
+      const target = ref<ElRef>(null);
 
-      onClickOutside(wrap, () => {
+      onClickOutside(target, () => {
         emit('clickOutside');
       });
 
@@ -20,7 +20,7 @@
         emit('mounted');
       });
 
-      return { wrap };
+      return { target };
     },
   });
 </script>
